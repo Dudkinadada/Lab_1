@@ -1,4 +1,4 @@
-# storage.py
+
 import json
 
 from models import University, Department, Course, Professor, Student

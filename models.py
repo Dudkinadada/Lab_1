@@ -1,6 +1,6 @@
-# models.py
+
 import json
-import xml.etree.ElementTree as ET
+
 from typing import List
 
 # Базовый класс для людей в университете

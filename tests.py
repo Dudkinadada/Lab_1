@@ -1,4 +1,4 @@
-# tests.py
+
 import unittest
 from models import University, Department, Course, Professor, Student
 

@@ -1,0 +1,31 @@
+{
+    "university": "Tech University",
+    "departments": [
+        {
+            "name": "Computer Science",
+            "courses": [
+                {
+                    "course_name": "Python Programming",
+                    "course_code": "CS101",
+                    "professor": {
+                        "name": "John Doe",
+                        "age": 45,
+                        "department": "Computer Science"
+                    },
+                    "students": [
+                        {
+                            "name": "Anna Smith",
+                            "age": 20,
+                            "id": "S123"
+                        },
+                        {
+                            "name": "Bob Brown",
+                            "age": 21,
+                            "id": "S124"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
