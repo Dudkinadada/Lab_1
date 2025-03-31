@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Data</title>
+</head>
+<body>
+    <h1>{{ university }}</h1>
+    {% for department in departments %}
+        <h2>Department: {{ department.name }}</h2>
+        {% for course in department.courses %}
+            <h3>Course: {{ course.course_name }} ({{ course.course_code }})</h3>
+            <p>Professor: {{ course.professor }}</p>
+            <ul>
+                {% for student in course.students %}
+                    <li>{{ student }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

@@ -1,6 +1,6 @@
 # storage.py
 import json
-import xml.etree.ElementTree as ET
+
 from models import University, Department, Course, Professor, Student
 
 
@@ -18,8 +18,15 @@ def save_to_json(university: University, filename: str):
             course_data = {
                 "course_name": course.course_name,
                 "course_code": course.course_code,
-                "professor": course.professor.name,
-                "students": [student.name for student in course.students]
+                "professor": {
+                    "name": course.professor.name,
+                    "age": course.professor.age,
+                    "department": course.professor.department
+                },
+                "students": [
+                    {"name": student.name, "age": student.age, "id": student.student_id}
+                    for student in course.students
+                ]
             }
             dept_data["courses"].append(course_data)
         data["departments"].append(dept_data)
@@ -36,11 +43,14 @@ def load_from_json(filename: str) -> University:
     for dept_data in data['departments']:
         department = Department(dept_data['name'])
         for course_data in dept_data['courses']:
-            professor = Professor(course_data['professor'], 0, "")
+            professor_data = course_data['professor']
+            professor = Professor(professor_data['name'], professor_data['age'], professor_data['department'])
+
             course = Course(course_data['course_name'], course_data['course_code'], professor)
-            for student_name in course_data['students']:
-                student = Student(student_name, 0, "")
+            for student_data in course_data['students']:
+                student = Student(student_data['name'], student_data['age'], student_data['id'])
                 course.add_student(student)
+
             department.add_course(course)
         university.add_department(department)
     return university

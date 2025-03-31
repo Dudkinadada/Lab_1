@@ -1,0 +1,16 @@
+{
+    "university": "Tech University",
+    "departments": [
+        {
+            "name": "Computer Science",
+            "courses": [
+                {
+                    "course_name": "Python Programming",
+                    "course_code": "CS101",
+                    "professor": "John Doe",
+                    "students": ["Anna Smith", "Bob Brown"]
+                }
+            ]
+        }
+    ]
+}
